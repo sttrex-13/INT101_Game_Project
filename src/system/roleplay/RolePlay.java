@@ -1,39 +1,34 @@
 package system.roleplay;
 
 import system.player.Player;
-import system.player.RoleRandom;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class RolePlay {
 
-    public boolean isDead = false;
-    private int dayCount = 1;
+    private boolean isDead = false;
+    private int dayCount;
 
     RoleRandom roleRandom = new RoleRandom();
     RoleSystem system = new RoleSystem();
-    Random random = new Random();
     Scanner sc = new Scanner(System.in);
 
     public RolePlay() {
+
         System.out.print("Enter your name : ");
-        Player player = new Player(sc.nextLine(),);
+        Player player = new Player(sc.nextLine(),roleRandom.randomRole());
         System.out.println(player);
         day();
 
-        System.out.println(roleRandom.toString());
+        //System.out.println(roleRandom.toString());
     }
     private boolean day(){
-        System.out.printf("---Day %d---\n",dayCount);
         system.vote();
         return isDead;
     }
     private boolean night(){
-
-
+        dayCount++;
         return isDead;
     }
-
 
 }
